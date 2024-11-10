@@ -81,4 +81,61 @@ fn augmented_assigment() {
     println!("Augment (-) = {}", a);
 }
 
+#[test]
+fn comparison() {
+    let a = 10;
+    let b = 10;
+
+    let check = a > b;
+    println!("check = {}", check);
+}
+
+#[test]
+fn boolean_operator() {
+    let nilai = 80;
+    let absen = 80;
+
+    let nilai_lulus = nilai > 75;
+    let absen_lulus = absen > 75;
+
+    let lulus = nilai_lulus && absen_lulus;
+    println!("Anda dinyatakan {}", lulus);
+}
+
+#[test]
+fn char_type() {
+    let char1: char = 'a';
+    let char2: char = 'b';
+    print!("{} and {}", char1, char2);
+}
+
+#[test]
+fn tuple_type() {
+    let data: (bool, i8, char) = (true, 12, '1');
+
+    println!("Datanya: {:?}", data);
+
+    let a = data.0;
+    let b = data.1;
+
+    println!("data Boolean = {} and data Integer = {}", a, b);
+}
+
+#[test]
+fn destruction_tuple() {
+    let data = (true, 12, '1');
+    println!("Datanya: {:?}", data);
+
+    let (a, b, _c) = data; // melakukan pengecualian dengan memakai (_var)
+    println!("Data tersedia = {} {}", a, b);
+}
+
+
+
+
+
+
+
+
+
 
