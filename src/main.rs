@@ -130,12 +130,101 @@ fn destruction_tuple() {
     println!("Data tersedia = {} {}", a, b);
 }
 
+#[test]
+fn tuple_mutable () {
+    let mut data = (true, 12, '1');
+    println!("Data lama: {:?}", data);
 
+    data.0 = false;
+    println!("Data baru: {:?}", data);
+}
 
+#[test]
+fn array () {
+    let data: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("Data Array {:?}", data);
 
+    // Akses data nya
+    println!("Data ke-1 {}", data[0]);
+}
 
+#[test]
+fn array_mutable() {
+    let mut data: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("Data Array = {:?}", data);
 
+    data[0] = 10;
+    data[1] = 20;
+    println!("Data Array Baru = {:?}", data);
 
+    let long_array = data.len();
+    println!("Panjang Array = {}", long_array)
+}
 
+#[test]
+fn array_2d_immutable() {
+    let data: [[i32;4];2] = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+    ];
 
+    println!("Data Array = {:?}", data); // ambil semua data
+    println!("{}", data[1][2]);
+}
 
+#[test]
+fn array_2d_mutable() {
+    let mut data: [[i32;4];2] = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+    ];
+
+    data[1][1] = 10;
+
+    println!("Data Array = {:?}", data); // ambil semua data
+    println!("{}", data[1][1]);
+}
+
+#[test]
+fn constant() {
+    const MINIMUM: i8 = 10;
+
+    println!("{}", MINIMUM);
+}
+
+#[test]
+fn variable_scope() {
+    let a = 10; // outer variable
+    {
+        let b = 10; // inner variable
+        println!("{}", b);
+        println!("{}", a+b);
+    }
+    println!("{}", a);
+    // println!("{}", b); // error!
+}
+
+#[test]
+fn str_type() {
+    let lama = "   Broo   ";
+    let baru = lama.trim();
+
+    println!("Lama = {}", lama);
+    println!("Baru = {}", baru);
+}
+
+#[test]
+fn string_type() {
+    let mut nama: String = String::from("Adam");
+    println!("nama awal = {}", nama); // Adam
+
+    nama = String::from("Didi");
+    println!("nama diubah = {}", nama); // Didi
+
+    // Data akan ditambahkan di belakangnya, namun di heap tetap sama 1 variable
+    nama.push_str(" Budi");
+    println!("{}", nama);
+
+    let data_baru = nama.replace("Didi", "adam");
+    println!("data baru = {}", data_baru);
+}
